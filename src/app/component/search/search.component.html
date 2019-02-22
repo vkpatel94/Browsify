@@ -1,0 +1,85 @@
+<!-- <app-header></app-header> -->
+
+<!-- <div class="title">
+  <h2>Find music of your choice</h2>
+  <p>Enter name of the artist, album, track...</p>
+</div>
+<form class="form my-2 my-lg-0">
+  <input class="form-control mr-sm-2 search" type="search" [formControl]="query" placeholder="Enter keyword to search" aria-label="Search">
+</form> -->
+
+<div class="divider"></div>
+
+<!-- Artist search result table -->
+<div *ngIf="artist">
+    <p class="artist-title">Results for Artist</p>
+</div>
+<table class="table" *ngIf="artist">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Followers</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let art of artist">
+      <!-- <td><a [routerLink]="[user.id]"><img [src]="user.profilePic"></a></td> -->
+      <td><img [src]="art.images[0].url"></td>
+      <td>{{art.name}}</td>
+      <td>{{art.genres[0]}}</td>
+      <td>{{art.followers.total}}</td>
+      <td>{{art.type}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Album search result table -->
+<div *ngIf="album">
+    <p class="album-title">Results for Album</p>
+</div>
+<table class="table" *ngIf="album">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Artist</th>
+      <th>Tracks</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alb of album">
+      <td><img [src]="alb.images[0].url"></td>
+      <td>{{alb.name}}</td>
+      <td>{{alb.artists[0].name}}</td>
+      <td>{{alb.total_tracks}}</td>
+      <td>{{alb.type}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Track search result table -->
+<div *ngIf="track">
+    <p class="track-title">Results for Track</p>
+</div>
+<table class="table" *ngIf="track">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Album Name</th>
+        <th>Artist</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trk of track">
+        <td>{{trk.name}}</td>
+        <td>{{trk.album.name}}</td>
+        <td>{{trk.artists[0].name }}</td>
+        <td>{{trk.type}}</td>
+      </tr>
+    </tbody>
+  </table>

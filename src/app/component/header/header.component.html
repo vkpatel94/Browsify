@@ -1,0 +1,13 @@
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">Browsify</span>
+</nav>
+
+<div class="title">
+    <h2>Find music of your choice</h2>
+    <p>Enter name of the artist, album, track...</p>
+  </div>
+  <form class="form my-2 my-lg-0">
+    <input class="form-control mr-sm-2 search" type="search" [formControl]="query" placeholder="Enter keyword to search" aria-label="Search">
+</form>
+
+<app-search [query]="query"></app-search>

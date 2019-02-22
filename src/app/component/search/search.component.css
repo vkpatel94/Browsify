@@ -1,0 +1,40 @@
+/* .clear-fix::after{
+    content: " ";
+    height: 0;
+    display: block;
+    clear: both;
+
+} */
+
+
+
+.divider {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.card {
+    width: 18rem;
+    margin: 50px 50px; 
+    float: left;  
+    
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+.table {
+    margin-left: 20px;
+    margin-right: 100px;
+    color: #12d312;
+    border: 5px solid #343a40;
+}
+
+p {
+    margin-left: 20px;
+    color: #12d312;
+}
+
+

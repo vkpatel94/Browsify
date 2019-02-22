@@ -1,0 +1,18 @@
+.navbar-brand {
+    color: #12d312;
+}
+
+.search {
+    width: 400px;
+    margin: 10px 550px;
+    border: 2px solid #12d312; 
+}
+
+.title {
+    color: #12d312;
+    margin: 50px 560px;
+}
+
+p {
+    margin-left: 50px;
+}
