@@ -1,13 +1,39 @@
 <nav class="navbar navbar-dark bg-dark">
   <span class="navbar-brand mb-0 h1">Browsify</span>
+  <div *ngFor="let usr of user">
+      <div *ngIf="isLoggedIn">
+          <span *ngIf="usr.images.length > 0"><img id="avatar"  [src]="usr.images[0].url"></span>
+          <span id="display-name">Hi, {{usr.display_name}}</span>
+          <span class="dropdown-caret"><button class="btn btn-link" [routerLink]="['/logout']">Logout</button></span>
+      </div>
+  </div>
 </nav>
 
-<div class="title">
+
+<div *ngIf="!isLoggedIn">
+  <div class="row">
+      <div>
+        <h1 id="title">Login into Browsify </h1> 
+        <h1 id="sub-title"> Find the music you love</h1>
+        <p id="cp">powered by Spotify</p>
+      </div>
+  </div>
+  <div class="row">
+      <div id="btn">
+        <button class="btn btn-outline-success btn-lg" id="loginBtn" (click)=onLogin()>Login with Spotify</button>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="title">
     <h2>Find music of your choice</h2>
     <p>Enter name of the artist, album, track...</p>
   </div>
-  <form class="form my-2 my-lg-0">
-    <input class="form-control mr-sm-2 search" type="search" [formControl]="query" placeholder="Enter keyword to search" aria-label="Search">
-</form>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2 search" type="search" name="search" #inputQuery="ngModel" [(ngModel)]="query" placeholder="Enter keyword to search">
+    <a [routerLink]="['/search', query]"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></a>
+</form> -->
 
-<app-search [query]="query"></app-search>
+<!-- <app-search [query]="query"></app-search> -->

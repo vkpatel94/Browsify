@@ -1,0 +1,41 @@
+<app-home></app-home>
+
+
+<div class="row">
+    <div class="col-sm-3">
+        <img [src]="imgUrl" id="artistImg">
+      </div>
+    <div class="col-sm-3 artist">
+      <div>
+       Name: {{name}}
+      </div>
+      <div>
+       Genre: {{genre}}
+      </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="artist">
+  <p class="artist-title">Results for Artist</p>
+</div> -->
+<table class="table" *ngIf="artist">
+<thead>
+  <tr>
+    <th>Album Cover</th>
+    <th>Album Name</th>
+    <th>Total Track</th>
+    <th>Release Date</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let art of artist">
+    <!-- <td><a [routerLink]="[user.id]"><img [src]="user.profilePic"></a></td> -->
+    <td *ngIf="art.images.length > 0"><img [src]="art.images[0].url" class="albumImg"></td>
+    <td>{{art.name}}</td>
+    <td>{{art.total_tracks}}</td>
+    <td>{{art.release_date}}</td>
+    <td><a [href]="art.external_urls.spotify" target="_blank"><button class="btn btn-outline-success btn-sm">Open in Spotify</button></a></td>
+  </tr>
+</tbody>
+</table>

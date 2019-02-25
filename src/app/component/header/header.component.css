@@ -1,18 +1,141 @@
+
+* {
+    box-sizing: border-box;
+}
+
 .navbar-brand {
     color: #12d312;
 }
 
-.search {
-    width: 400px;
-    margin: 10px 550px;
-    border: 2px solid #12d312; 
+#loginBtn {
+    border-radius: 40px;
 }
 
-.title {
+#btn {
+    margin-left: 90px;
+    margin-top: 50px;
+}
+
+#title {
     color: #12d312;
-    margin: 50px 560px;
+    margin-left: 45px;
+    margin-top: 50px;
+    font-size: 2rem;
+
 }
 
-p {
-    margin-left: 50px;
+#sub-title {
+    color: #12d312;
+    margin-left: 20px;
+    font-size: 2rem;
+}
+
+#cp {
+    color: #12d312;
+    margin-left: 120px;
+}
+
+#avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#display-name {
+    color: #12d312;
+    margin-right: 20px;
+    margin-right: 5px;
+}
+
+.btn-link {
+    color: #12d312;
+    margin-bottom: 6px;
+}
+
+@media (min-width: 500px) {
+    
+    
+    #btn {
+        margin-left: 165px;
+        margin-top: 50px;
+    }
+    
+    #title {
+        color: #12d312;
+        margin-left: 100px;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        
+    }
+    
+    #sub-title {
+        color: #12d312;
+        margin-left: 60px;
+        font-size: 2.5rem;
+    }
+    
+    #cp {
+        color: #12d312;
+        margin-left: 190px;
+    }
+    
+}
+
+@media (min-width: 700px) {
+    
+    
+    #btn {
+        margin-left: 375px;
+        margin-top: 50px;
+    }
+    
+    #title {
+        color: #12d312;
+        margin-left: 300px;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        
+    }
+    
+    #sub-title {
+        color: #12d312;
+        margin-left: 260px;
+        font-size: 2.5rem;
+    }
+    
+    #cp {
+        color: #12d312;
+        margin-left: 400px;
+    }
+
+}
+
+@media (min-width: 1000px) {
+    
+    
+    #btn {
+        margin-left: 620px;
+        margin-top: 50px;
+    }
+    
+    #title {
+        color: #12d312;
+        margin-left: 550px;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        
+    }
+    
+    #sub-title {
+        color: #12d312;
+        margin-left: 510px;
+        font-size: 2.5rem;
+    }
+    
+    #cp {
+        color: #12d312;
+        margin-left: 650px;
+    }
+
 }

@@ -1,0 +1,42 @@
+#artistImg {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+}
+
+.albumImg {
+    width: 30px;
+    height: 30px;
+}
+
+.artist {
+    color: #12d312;
+    font-size: x-large;
+    margin-top: 170px;
+}
+
+.table {
+    margin-left: 20px;
+    width: 97% !important;
+    color: #12d312;
+    border: 5px solid #343a40;
+}
+
+.btn {
+ border-radius: 40px;
+}
+
+.search {
+    width: 400px;
+    margin: 10px 525px;
+    border: 2px solid #12d312; 
+}
+
+.title {
+    color: #12d312;
+    margin: 50px 560px;
+}
+
+p {
+    margin-left: 50px;
+}

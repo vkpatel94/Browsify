@@ -16,26 +16,32 @@ export class BrowsifyService {
   private clientId: string = environment.client_id;
   private clientSecret: string = environment.client_secret;
   private body: any;
-  private redirect_uri: string = 'http://localhost:4200/';
+  private redirect_uri: string = 'http://localhost:4200/redirect';
   private scope: string = 'user-read-birthdate user-read-private user-read-email';
   private response_type: string = 'code';
 
 
   constructor(private _http: Http) { }
- /* Authorization code flow
-  getAuthorized = () => {
+  // Authorization code flow
+  // getAuthorized = () => {
 
-    return this._http.get(
+  //   return this._http.get(
     //     window.open('https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/authorize?client_id=' + this.clientId +
     // '&redirect_uri=' + this.redirect_uri +
     // '&scope=' + this.scope +
     // '&response_type=' + this.response_type, 'spotify')
     
-    )
-    .map(res => res.headers);
-  }
+  //   )
+  //   .map(res => res.headers);
+  // }
 
-  getToken = (authCode: any) => {
+
+  
+  // 
+  // Method to get Access Token
+  // 
+  // 
+  getToken = (authCode: string) => {
     let headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(this.clientId + ":" + this.clientSecret));
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -50,10 +56,26 @@ export class BrowsifyService {
     return this._http.post('https://cors-anywhere.herokuapp.com/https://accounts.spotify.com/api/token', body, { headers: headers })
       .map(res => res.json());
   }
-*/
+
+
+  // 
+  // Method to get User Details
+  // 
+  // 
+  getUser = (authToken: string) => {
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + authToken);
+
+    return this._http.get('https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/me', {headers: headers})
+    .map(res => res.json());
+  }
 
   // Client credential flow
   // Get access token from Spotify to use API
+  // 
+  // Method to get Access Token w/o User Details
+  // 
+  // 
   getAuth = () => {
     let headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(this.clientId + ":" + this.clientSecret));
@@ -68,11 +90,29 @@ export class BrowsifyService {
 
   }
 
+  // 
+  // Method to get Search results
+  // 
+  // 
   get  = (query: string, type: ['artist', 'album', 'track', 'playlist'], authToken: string) => {
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + authToken);
 
     let searchUrl = 'https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/search?q=' + query + '&offset=0&limit=5&type=' + type + '&market=US';
+
+    return this._http.get(searchUrl, { headers: headers })
+    .map(res => res.json());
+  }
+  
+  // 
+  // Method to get Artist Details
+  // 
+  // 
+  getArtist  = (id: string, include_groups: ['album', 'single'], authToken: string) => {
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + authToken);
+
+    let searchUrl = 'https://cors-anywhere.herokuapp.com/https://api.spotify.com/v1/artists/' + id + '/albums?' + include_groups + '&offset=0&limit=10';
 
     return this._http.get(searchUrl, { headers: headers })
     .map(res => res.json());

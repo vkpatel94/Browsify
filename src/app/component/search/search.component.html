@@ -1,15 +1,6 @@
-<!-- <app-header></app-header> -->
+<app-home></app-home>
 
-<!-- <div class="title">
-  <h2>Find music of your choice</h2>
-  <p>Enter name of the artist, album, track...</p>
-</div>
-<form class="form my-2 my-lg-0">
-  <input class="form-control mr-sm-2 search" type="search" [formControl]="query" placeholder="Enter keyword to search" aria-label="Search">
-</form> -->
-
-<div class="divider"></div>
-
+<div>
 <!-- Artist search result table -->
 <div *ngIf="artist">
     <p class="artist-title">Results for Artist</p>
@@ -27,7 +18,7 @@
   <tbody>
     <tr *ngFor="let art of artist">
       <!-- <td><a [routerLink]="[user.id]"><img [src]="user.profilePic"></a></td> -->
-      <td><img [src]="art.images[0].url"></td>
+      <td *ngIf="art.images.length > 0"><a [routerLink]="['/artist', art.id, art.images[0].url, art.name, art.genres[0]]"><img [src]="art.images[0].url"></a></td>
       <td>{{art.name}}</td>
       <td>{{art.genres[0]}}</td>
       <td>{{art.followers.total}}</td>
@@ -52,7 +43,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let alb of album">
-      <td><img [src]="alb.images[0].url"></td>
+      <td *ngIf="alb.images.length > 0"><img [src]="alb.images[0].url"></td>
       <td>{{alb.name}}</td>
       <td>{{alb.artists[0].name}}</td>
       <td>{{alb.total_tracks}}</td>
@@ -72,6 +63,7 @@
         <th>Album Name</th>
         <th>Artist</th>
         <th>Type</th>
+        <th>Preview</th>
       </tr>
     </thead>
     <tbody>
@@ -80,6 +72,8 @@
         <td>{{trk.album.name}}</td>
         <td>{{trk.artists[0].name }}</td>
         <td>{{trk.type}}</td>
+        <td><a [href]="trk.preview_url" target="_blank"><button class="btn btn-outline-success btn-sm">Play</button></a></td>
       </tr>
     </tbody>
   </table>
+</div>
